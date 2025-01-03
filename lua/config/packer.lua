@@ -30,4 +30,9 @@ return require('packer').startup(function(use)
 
     use { "folke/flash.nvim" }
 
+    use {
+        'akinsho/bufferline.nvim',
+        commit = '73540cb', -- Fix Neovim 0.10.0
+        requires = { 'nvim-tree/nvim-web-devicons' }
+    }
 end)
