@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/nbardavid/.local/share/nvim/site/pack/packer/start/dracula.nvim",
     url = "https://github.com/Mofiqul/dracula.nvim"
   },
+  ["flash.nvim"] = {
+    loaded = true,
+    path = "/home/nbardavid/.local/share/nvim/site/pack/packer/start/flash.nvim",
+    url = "https://github.com/folke/flash.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/nbardavid/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
