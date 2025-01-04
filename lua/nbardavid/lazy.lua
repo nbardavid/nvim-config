@@ -15,7 +15,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("nbardavid.plugins", {
+require("lazy").setup({ { import = "nbardavid.plugins" }, { import = "nbardavid.plugins.lsp" } }, {
     change_detection = {
         notify = false,
     },
