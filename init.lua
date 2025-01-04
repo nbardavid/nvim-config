@@ -1,1 +1,2 @@
-require("config")
+require("nbardavid.core")
+require("nbardavid.lazy")
