@@ -7,18 +7,18 @@ return {
 
         require("bufferline").setup({
             options = {
-                show_buffer_close_icons = true,   
-                show_close_icon = false,         
-                always_show_bufferline = true,   
-                enforce_regular_tabs = false,    
-                separator_style = "slant",       
-                diagnostics = "nvim_lsp",        
+                show_buffer_close_icons = true,
+                show_close_icon = false,
+                always_show_bufferline = true,
+                enforce_regular_tabs = false,
+                separator_style = "slant",
+                diagnostics = "nvim_lsp",
                 offsets = {
                     {
-                        filetype = "NvimTree",       
-                        text = "File Explorer",     
-                        highlight = "Directory",    
-                        text_align = "left",        
+                        filetype = "NvimTree",
+                        text = "File Explorer",
+                        highlight = "Directory",
+                        text_align = "left",
                     },
                 },
             },
