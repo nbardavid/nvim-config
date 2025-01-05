@@ -4,32 +4,31 @@ return {
     config = function()
         local lualine = require("lualine")
 
-        -- Configure lualine avec le thème Catppuccin
         lualine.setup({
             options = {
-                theme = "catppuccin", -- Utilise le thème Catppuccin
-                section_separators = { left = "", right = "" }, -- Style des séparateurs
+                theme = "catppuccin",
+                section_separators = { left = "", right = "" },
                 component_separators = { left = "", right = "" },
-                icons_enabled = true, -- Active les icônes
+                icons_enabled = true,
             },
             sections = {
                 lualine_a = { "mode" },
-                lualine_b = { "branch", "diff", "diagnostics" },
-                lualine_c = { { "filename", path = 1 } }, -- Affiche le chemin relatif du fichier
+                lualine_b = { { "filename", path = 1 } },
+                lualine_c = {},
                 lualine_x = { "filetype" },
                 lualine_y = { "progress" },
-                lualine_z = {"datetime"},
+                lualine_z = { {"datetime", style = '%H:%M:%S'} },
             },
             inactive_sections = {
                 lualine_a = {},
                 lualine_b = {},
-                lualine_c = { { "filename", path = 1 } }, -- Chemin du fichier pour les buffers inactifs
+                lualine_c = { { "filename", path = 1 } },
                 lualine_x = { "location" },
                 lualine_y = {},
                 lualine_z = {},
             },
             tabline = {},
-            extensions = { "nvim-tree", "quickfix" }, -- Ajout de support pour NvimTree et quickfix
+            extensions = { "nvim-tree", "quickfix" },
         })
     end,
 }
