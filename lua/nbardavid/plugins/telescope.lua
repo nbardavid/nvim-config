@@ -29,10 +29,11 @@ return {
 
         local keymap = vim.keymap
 
-        keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
-        keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
-        keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<cr>", { desc = "Find word in cwd" })
-        keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
-        keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+        keymap.set("n", "<leader>ff", function() vim.cmd("Telescope find_files") end, { desc = "Fuzzy find files in cwd" })
+        -- keymap.set("n", "<leader>fr", function() vim.cmd("Telescope oldfiles") end, { desc = "Fuzzy find recent files" })
+        keymap.set("n", "<leader>fw", function() vim.cmd("Telescope live_grep") end, { desc = "Find word in cwd" })
+        keymap.set("n", "<leader>fc", function() vim.cmd("Telescope grep_string") end, { desc = "Find string under cursor in cwd" })
+        keymap.set("n", "<leader>ft", function() vim.cmd("TodoTelescope") end, { desc = "Find todos" })
+        keymap.set("n", "<leader>fr", function() vim.cmd("Telescope lsp_references") end, { desc = "Find lsp_references"} )
     end,
 }
