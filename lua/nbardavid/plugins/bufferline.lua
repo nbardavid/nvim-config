@@ -29,9 +29,10 @@ return {
         keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", { desc = "Next buffer" })
         keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
 
-        keymap.set("n", "<leader>x", ":bdelete<CR>", { desc = "Close buffer" })
+        keymap.set("n", "<leader>bc", function() require("nbardavid.core.utils").custom_bdelete() end, { desc = "Close buffer" })
 
         keymap.set("n", "<leader>bp", ":BufferLineMovePrev<CR>", { desc = "Move buffer left" })
         keymap.set("n", "<leader>bn", ":BufferLineMoveNext<CR>", { desc = "Move buffer right" })
     end,
 }
+
