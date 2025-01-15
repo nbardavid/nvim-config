@@ -23,6 +23,9 @@ keymap.set("i", "<C-j>", "<Down>", { desc = "Move cursor down in insert mode" })
 keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save file in normal mode" })
 keymap.set("i", "<C-s>", "<Esc>:w<CR>a", { desc = "Save file in insert mode" })
 
+keymap.set("v", "<", "<gv", {noremap = true, silent = true})
+keymap.set("v", ">", ">gv", {noremap = true, silent = true})
+
 vim.keymap.set("n", "<Esc>", function()
     vim.cmd("nohlsearch")
 end, { noremap = true, silent = true })
