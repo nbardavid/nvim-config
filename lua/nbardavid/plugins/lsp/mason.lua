@@ -28,7 +28,7 @@ return {
             -- list of servers for mason to install
             ensure_installed = {
                 "pyright",      -- Python (Flask)
-                "tsserver",     -- JavaScript/TypeScript (React)
+                "ts_ls",     -- JavaScript/TypeScript (React)
                 "html",         -- HTML
                 "cssls",        -- CSS
                 "jsonls",       -- JSON
