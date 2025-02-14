@@ -28,13 +28,29 @@ return {
         -- Capabilities for autocompletion
         local capabilities = cmp_nvim_lsp.default_capabilities()
 
-		mason_lspconfig.setup_handlers({
-			function(server_name)
-				lspconfig[server_name].setup({
-					capabilities = capabilities,
-				})
-			end,
-		})
+        mason_lspconfig.setup_handlers({
+            function(server_name)
+                if server_name == "pyright" then
+                    lspconfig.pyright.setup({
+                        capabilities = capabilities,
+                        settings = {
+                            python = {
+                                analysis = {
+                                    typeCheckingMode = "basic",
+                                    autoSearchPaths = true,
+                                    useLibraryCodeForTypes = true
+                                },
+                                pythonPath = "~/.venv/nvim/bin/python"
+                            }
+                        }
+                    })
+                else
+                    lspconfig[server_name].setup({
+                        capabilities = capabilities,
+                    })
+                end
+            end,
+        })
     end,
 }
 

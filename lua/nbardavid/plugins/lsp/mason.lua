@@ -25,19 +25,18 @@ return {
         })
 
         mason_lspconfig.setup({
-            -- list of servers for mason to install
             ensure_installed = {
-                "pyright",      -- Python (Flask)
-                "ts_ls",     -- JavaScript/TypeScript (React)
-                "html",         -- HTML
-                "cssls",        -- CSS
-                "jsonls",       -- JSON
-                "bashls",       -- Shell
-                "dockerls",     -- Docker
-                "yamlls",       -- YAML
-                "marksman",     -- Markdown
-                "lua_ls",       -- Lua (Neovim config)
-                "clangd",       -- C/C++ (si nécessaire)
+                "pyright",
+                "ts_ls",
+                "html",
+                "cssls",
+                "jsonls",
+                "bashls",
+                "dockerls",
+                "yamlls",
+                "marksman",
+                "lua_ls",
+                "clangd",
             },
         })
 
