@@ -13,6 +13,7 @@ return {
         "saadparwaiz1/cmp_luasnip", -- for autocompletion
         "rafamadriz/friendly-snippets", -- useful snippets
         "onsails/lspkind.nvim", -- vs-code like pictograms
+        'roginfarrer/cmp-css-variables'
     },
     config = function()
         local cmp = require("cmp")
@@ -78,6 +79,7 @@ return {
                 { name = "luasnip" },
                 { name = "buffer" },
                 { name = "path" },
+                { name = 'css-variables' },
             }),
             formatting = {
                 format = lspkind.cmp_format({

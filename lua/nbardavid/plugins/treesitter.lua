@@ -30,6 +30,9 @@ return {
                 "html",
                 "css",
                 "prisma",
+                "javascript",
+                "typescript",
+                "tsx",
                 "markdown",
                 "markdown_inline",
                 "bash",
@@ -40,6 +43,7 @@ return {
                 "vimdoc",
                 "c",
                 "python",
+                "http"
             },
             incremental_selection = {
                 enable = true,

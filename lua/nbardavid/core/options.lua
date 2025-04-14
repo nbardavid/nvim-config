@@ -6,7 +6,7 @@
 --   By: nbardavi <nbardavi@student.42.fr>          +#+  +:+       +#+        --
 --                                                +#+#+#+#+#+   +#+           --
 --   Created: 2025/01/15 09:50:10 by nbardavi          #+#    #+#             --
---   Updated: 2025/01/15 09:54:17 by nbardavi         ###   ########.fr       --
+--   Updated: 2025/03/12 14:41:51 by nbardavi         ###   ########.fr       --
 --                                                                            --
 -- -------------------------------------------------------------------------- --
 
@@ -60,3 +60,5 @@ opt.swapfile = false
 opt.backup = false
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.undofile = true
+
+vim.o.exrc = true
