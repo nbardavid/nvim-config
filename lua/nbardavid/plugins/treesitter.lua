@@ -43,7 +43,9 @@ return {
                 "vimdoc",
                 "c",
                 "python",
-                "http"
+                "http",
+                "zig",
+                "glsl"
             },
             incremental_selection = {
                 enable = true,

@@ -11,6 +11,14 @@ return {
 		local mason_lspconfig = require("mason-lspconfig")
         local keymap = vim.keymap
 
+        -- Filetype detection for .frag and .vert
+        vim.filetype.add({
+            extension = {
+                frag = "glsl",
+                vert = "glsl",
+            },
+        })
+
         -- Keybindings for LSP
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("UserLspConfig", {}),
