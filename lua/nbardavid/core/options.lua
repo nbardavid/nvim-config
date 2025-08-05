@@ -61,4 +61,6 @@ opt.backup = false
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.undofile = true
 
+opt.inccommand = "split"
+
 vim.o.exrc = true
