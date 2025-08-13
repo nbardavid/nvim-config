@@ -27,17 +27,18 @@ return {
         mason_lspconfig.setup({
             ensure_installed = {
                 -- "pyright",
-                -- "ts_ls",
+                "ts_ls",
                 -- "html",
                 -- "cssls",
                 -- "jsonls",
-                "bashls",
+                -- "bashls",
                 -- "dockerls",
                 -- "yamlls",
                 -- "marksman",
                 "lua_ls",
-                -- "clangd",
-                "zls",
+                "clangd",
+                -- "nixd",
+                -- "zls",
             },
         })
 

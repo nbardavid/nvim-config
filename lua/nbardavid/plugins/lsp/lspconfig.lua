@@ -9,13 +9,52 @@ return {
         local lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		local mason_lspconfig = require("mason-lspconfig")
+        local capabilities = cmp_nvim_lsp.default_capabilities()
         local keymap = vim.keymap
+
+        --C/C++
+        lspconfig.clangd.setup({
+            capabilities = capabilities,
+        })
+
+        --Lua
+        lspconfig.lua_ls.setup({
+            capabilities = capabilities,
+        })
 
         -- Filetype detection for .frag and .vert
         vim.filetype.add({
             extension = {
                 frag = "glsl",
                 vert = "glsl",
+            },
+        })
+
+        -- Nix LSP Config
+        lspconfig.nixd.setup({
+            capabilities = capabilities,
+            root_dir = function(fname)
+                local util = require("lspconfig.util")
+                return util.root_pattern("flake.nix", "default.nix", "shell.nix")(fname)
+                    or "/etc/nixos"
+            end,
+            settings = {
+                nixd = {
+                    nixpkgs = {
+                        expr = "import <nixpkgs> {}",
+                    },
+                    formatting = {
+                        command = { "alejandra" },
+                    },
+                    options = {
+                        nixos = {
+                            expr = 'with import <nixpkgs/nixos> { configuration = {}; }; options',
+                        },
+                        -- home_manager = {
+                        --     expr = 'let hm = import <home-manager>; in (hm.lib.homeManagerConfiguration { pkgs = import <nixpkgs> {}; modules = []; }).options'
+                        -- },
+                    },
+                },
             },
         })
 
