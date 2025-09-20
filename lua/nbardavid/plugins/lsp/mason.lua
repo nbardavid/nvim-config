@@ -1,5 +1,6 @@
 return {
     "williamboman/mason.nvim",
+    version = "v1.11.0",
     dependencies = {
         "williamboman/mason-lspconfig.nvim",
         "WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -29,7 +30,7 @@ return {
                 -- "pyright",
                 "ts_ls",
                 -- "html",
-                -- "cssls",
+                "cssls",
                 -- "jsonls",
                 -- "bashls",
                 -- "dockerls",
@@ -38,7 +39,7 @@ return {
                 "lua_ls",
                 "clangd",
                 -- "nixd",
-                -- "zls",
+                "zls",
             },
         })
 

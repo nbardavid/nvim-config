@@ -22,6 +22,15 @@ return {
             capabilities = capabilities,
         })
 
+        lspconfig.qmlls.setup({
+            cmd = { "qmlls6" },
+            capabilities = capabilities,
+            cmd_env  = {
+                QML_IMPORT_PATH = vim.fn.expand("~/.local/share/quickshell/modules"),
+                QML2_IMPORT_PATH = vim.fn.expand("~/.local/share/quickshell/modules"),
+            }
+        })
+
         -- Filetype detection for .frag and .vert
         vim.filetype.add({
             extension = {

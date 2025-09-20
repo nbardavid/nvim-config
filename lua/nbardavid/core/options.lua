@@ -64,3 +64,8 @@ opt.undofile = true
 opt.inccommand = "split"
 
 vim.o.exrc = true
+
+vim.cmd [[
+  hi Normal guibg=NONE ctermbg=NONE
+  hi NormalNC guibg=NONE ctermbg=NONE
+]]
