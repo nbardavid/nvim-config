@@ -30,6 +30,10 @@ vim.keymap.set("n", "<Esc>", function()
     vim.cmd("nohlsearch")
 end, { noremap = true, silent = true })
 
+vim.keymap.set("n", "<C-t>", function ()
+    require("nvchad.themes").open()
+end, {})
+
 --vim.api.nvim_create_autocmd({"BufEnter"}, {
 --    callback = function()
 --        vim.cmd("ShowKeyToggle")
