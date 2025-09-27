@@ -12,7 +12,10 @@ M.ui = {
 
     cmp = {
         style = "atom"
-    }
-}
+    },
 
+    -- telescope = {
+    --     style = "bordered"
+    -- }
+}
 return M
