@@ -1,6 +1,6 @@
 return {
     "hrsh7th/nvim-cmp",
-    event = {"InsertEnter", "CmdlineEnter"},
+    event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
         "hrsh7th/cmp-buffer", -- source for text in buffer
         "hrsh7th/cmp-path", -- source for file system paths
@@ -13,18 +13,18 @@ return {
         "saadparwaiz1/cmp_luasnip", -- for autocompletion
         "rafamadriz/friendly-snippets", -- useful snippets
         "onsails/lspkind.nvim", -- vs-code like pictograms
-        'roginfarrer/cmp-css-variables'
+        "roginfarrer/cmp-css-variables",
     },
+
     config = function()
         local cmp = require("cmp")
         local luasnip = require("luasnip")
-        local lspkind = require("lspkind")
 
         -- Load VSCode-style snippets
         require("luasnip.loaders.from_vscode").lazy_load()
 
-        -- Main setup
-        cmp.setup({
+        -- Tes options de base
+        local options = {
             completion = {
                 completeopt = "menu,menuone,preview,noselect",
             },
@@ -40,14 +40,12 @@ return {
             },
 
             mapping = {
-                ['<CR>'] = cmp.mapping(function(fallback)
+                ["<CR>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         if luasnip.expandable() then
                             luasnip.expand()
                         else
-                            cmp.confirm({
-                                select = true,
-                            })
+                            cmp.confirm({ select = true })
                         end
                     else
                         fallback()
@@ -74,38 +72,37 @@ return {
                     end
                 end, { "i", "s" }),
             },
+
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
                 { name = "buffer" },
                 { name = "path" },
-                { name = 'css-variables' },
+                { name = "css-variables" },
             }),
-            formatting = {
-                format = lspkind.cmp_format({
-                    maxwidth = 50,
-                    ellipsis_char = "...",
-                }),
-            },
-        })
+        }
 
-        cmp.setup.cmdline('/', {
-            view = {
-                entries = {name = 'wildmenu', separator = '|' }
-            },
+        -- 🔥 Merge avec NvChad
+        options = vim.tbl_deep_extend("force", options, require("nvchad.cmp"))
+
+        -- Setup principal
+        cmp.setup(options)
+
+        -- Cmdline search (/)
+        cmp.setup.cmdline("/", {
+            view = { entries = { name = "wildmenu", separator = "|" } },
             mapping = cmp.mapping.preset.cmdline(),
-            sources = ({
-                { name = "buffer" },
-            }),
+            sources = { { name = "buffer" } },
         })
 
-        cmp.setup.cmdline(':', {
+        -- Cmdline (:)
+        cmp.setup.cmdline(":", {
             mapping = cmp.mapping.preset.cmdline(),
             sources = cmp.config.sources({
-                { name = 'path' },
-                { name = 'cmdline' }
+                { name = "path" },
+                { name = "cmdline" },
             }),
-            matching = { disallow_symbol_nonprefix_matching = false }
+            matching = { disallow_symbol_nonprefix_matching = false },
         })
     end,
 }
