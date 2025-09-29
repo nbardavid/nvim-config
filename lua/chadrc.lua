@@ -13,9 +13,10 @@ M.ui = {
     cmp = {
         style = "atom"
     },
-
-    -- telescope = {
-    --     style = "bordered"
-    -- }
 }
+
+M.nvdash = {
+    load_on_startup = true,
+}
+
 return M

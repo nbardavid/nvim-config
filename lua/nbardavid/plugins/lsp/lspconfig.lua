@@ -8,7 +8,8 @@ return {
     config = function()
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
         local mason_lspconfig = require("mason-lspconfig")
-        local capabilities = cmp_nvim_lsp.default_capabilities()
+        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
         local keymap = vim.keymap
 
         vim.diagnostic.config({
@@ -34,7 +35,7 @@ return {
             on_attach = on_attach,
         })
         vim.lsp.config("gopls", {
-            cmd = {"gopls", "serve"},
+            cmd = { "gopls", "-remote=auto", "serve", "-logfile=auto" },
             capabilities = capabilities,
             on_attach = on_attach,
         })
