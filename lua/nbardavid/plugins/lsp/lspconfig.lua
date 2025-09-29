@@ -33,6 +33,15 @@ return {
             capabilities = capabilities,
             on_attach = on_attach,
         })
+        vim.lsp.config("pyright", {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = {
+                python = {
+                    pythonPath = vim.fn.exepath("python"), -- prend le python actif (donc ton venv si activé)
+                },
+            },
+        })
         -- vim.lsp.config("qmlls", {
         --     cmd = { "qmlls6" },
         --     capabilities = capabilities,
