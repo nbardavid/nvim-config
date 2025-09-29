@@ -33,15 +33,19 @@ return {
             capabilities = capabilities,
             on_attach = on_attach,
         })
-        vim.lsp.config("pyright", {
+        vim.lsp.config("gopls", {
+            cmd = {"gopls", "serve"},
             capabilities = capabilities,
             on_attach = on_attach,
-            settings = {
-                python = {
-                    pythonPath = vim.fn.exepath("python"), -- prend le python actif (donc ton venv si activé)
-                },
-            },
         })
+        -- vim.lsp.config("pyright", {
+        --     capabilities = capabilities,
+        --     on_attach = on_attach,
+        --     before_init = function(_, config)
+        --         default_venv_path = path.join(vim.env.HOME, "venv")
+        --         config.settings.python.pythonPath = default_venv_path
+        --     end,
+        -- })
         -- vim.lsp.config("qmlls", {
         --     cmd = { "qmlls6" },
         --     capabilities = capabilities,
