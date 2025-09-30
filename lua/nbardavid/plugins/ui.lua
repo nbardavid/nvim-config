@@ -23,6 +23,9 @@ return {
 
         keymap.set({"n","t"}, "<A-v>", function()
             term.toggle { pos = "vsp", id = "vterm" }
+        end, { desc = "Toggle vertical terminal" })
+        keymap.set({"n","t"}, "<A-i>", function()
+            term.toggle { pos = "float", id = "vterm" }
         end, { desc = "Toggle floating terminal" })
 
     end,
