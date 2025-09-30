@@ -30,7 +30,7 @@ vim.keymap.set("n", "<Esc>", function()
     vim.cmd("nohlsearch")
 end, { noremap = true, silent = true })
 
-vim.keymap.set("n", "<C-t>", function ()
+vim.keymap.set("n", "<leader>th", function ()
     require("nvchad.themes").open()
 end, {})
 
