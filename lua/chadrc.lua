@@ -10,9 +10,9 @@ M.ui = {
         theme = "vscode_colored",
     },
 
-    cmp = {
-        style = "atom"
-    },
+    -- cmp = {
+    --     style = "atom"
+    -- },
 }
 
 M.nvdash = {
