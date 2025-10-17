@@ -1,43 +1,52 @@
 return {
-  "saghen/blink.cmp",
-  build = "cargo build --release", -- ou: version = "1.*"
-  event = { "InsertEnter", "CmdlineEnter" },
-  dependencies = {
-    { "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" },
-    "rafamadriz/friendly-snippets",
-    -- "roginfarrer/cmp-css-variables",
-    -- "saghen/blink.compat",
-  },
+    "saghen/blink.cmp",
+    build = "cargo build --release", -- ou: version = "1.*"
+    event = { "InsertEnter", "CmdlineEnter" },
+    dependencies = {
+        { "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" },
+        "rafamadriz/friendly-snippets",
+        -- "roginfarrer/cmp-css-variables",
+        -- "saghen/blink.compat",
+    },
 
-  config = function()
-    local blink = require("blink.cmp")
-    require("luasnip.loaders.from_vscode").lazy_load()
+    config = function()
+        local blink = require("blink.cmp")
+        require("luasnip.loaders.from_vscode").lazy_load()
 
-    blink.setup({
-      completion = {
-        completeopt = "menu,menuone,noselect",
-        menu = { border = "rounded" },
-        documentation = { border = "rounded" },
-      },
+        blink.setup({
+            completion = {
+                completeopt = "menu,menuone,noselect",
+                menu = {
+                    border = "single",
+                    draw = {
+                        columns = {
+                            { "kind_icon", "label", "label_description", gap = 1 },
+                            { "kind" },
+                        },
+                    },
+                },
+                documentation = {
+                    border = "single"
+                }
+            },
 
-      snippets = { preset = "luasnip" },
+            snippets = { preset = "luasnip" },
 
-      keymap = {
-        preset = "enter",
-        ["<Tab>"]   = { "snippet_forward", "select_next", "fallback" },
-        ["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
-        ["<C-Space>"] = { "show" },
-      },
+            keymap = {
+                preset = "enter",
+                ["<Tab>"]   = { "snippet_forward", "select_next", "fallback" },
+                ["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
+                ["<C-Space>"] = { "show" },
+            },
 
-      sources = {
-        default = { "lsp", "path", "snippets", "buffer" },
-        -- compat  = { "css-variables" },
-      },
+            sources = {
+                default = { "lsp", "path", "snippets", "buffer" },
+            },
 
-      cmdline = {
-        ["/"] = { sources = { "buffer" } },
-        [":"] = { sources = { "path", "cmdline" } },
-      },
-    })
-  end,
+            cmdline = {
+                keymap = { preset = 'cmdline' },
+                completion = { menu = { auto_show = true } },
+            },
+        })
+    end,
 }

@@ -63,6 +63,8 @@ opt.undofile = true
 
 opt.inccommand = "split"
 
+vim.o.winborder = "single"
+
 vim.o.exrc = true
 
 vim.cmd [[
