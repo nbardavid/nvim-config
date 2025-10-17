@@ -30,8 +30,18 @@ vim.keymap.set("n", "<Esc>", function()
     vim.cmd("nohlsearch")
 end, { noremap = true, silent = true })
 
+vim.keymap.set("n", "<leader>th", function ()
+    require("nvchad.themes").open()
+end, {})
+
+vim.keymap.set({ "n", "x" }, "<leader>ca", function()
+	require("tiny-code-action").code_action()
+end, { noremap = true, silent = true })
+
 --vim.api.nvim_create_autocmd({"BufEnter"}, {
 --    callback = function()
 --        vim.cmd("ShowKeyToggle")
 --    end
 --})
+-- NVCHAD
+
