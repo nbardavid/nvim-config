@@ -18,10 +18,31 @@ return {
             severity_sort = true,
         })
 
-        local function on_attach(_, bufnr)
+        local function on_attach(client, bufnr)
             local opts = { buffer = bufnr, silent = true }
             keymap.set("n", "gd", vim.lsp.buf.definition, opts)
             keymap.set("n", "K", vim.lsp.buf.hover, opts)
+
+            if vim.bo[bufnr].filetype == "go" then
+                vim.api.nvim_create_autocmd("BufWritePre", {
+                    buffer = bufnr,
+                    callback = function()
+                        vim.lsp.buf.format({ async = false })
+                    end,
+                })
+            end
+
+            if client.name == "biome" then
+                vim.api.nvim_create_autocmd("BufWritePre", {
+                    buffer = bufnr,
+                    callback = function()
+                        vim.lsp.buf.format({ 
+                            async = false,
+                            timeout_ms = 2000,
+                        })
+                    end,
+                })
+            end
         end
 
         vim.lsp.config("clangd", {
@@ -39,6 +60,15 @@ return {
             capabilities = capabilities,
             on_attach = on_attach,
         })
+
+        vim.lsp.config("biome", {
+          cmd = { "biome", "lsp-proxy" },
+          root_dir = vim.fs.root(0, { "biome.json", ".git" }),
+          filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json" },
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+        vim.lsp.enable("biome")
 
         mason_lspconfig.setup_handlers({
             function(server_name)
