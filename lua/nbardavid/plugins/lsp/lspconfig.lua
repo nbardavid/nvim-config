@@ -23,6 +23,7 @@ return {
             keymap.set("n", "gd", vim.lsp.buf.definition, opts)
             keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
+            -- Format on save pour Go
             if vim.bo[bufnr].filetype == "go" then
                 vim.api.nvim_create_autocmd("BufWritePre", {
                     buffer = bufnr,
@@ -70,8 +71,10 @@ return {
         })
         vim.lsp.enable("biome")
 
+        local disabled_servers = { tsserver = true }
         mason_lspconfig.setup_handlers({
             function(server_name)
+                if disabled_servers[server_name] then return end
                 vim.lsp.config(server_name, {
                     capabilities = capabilities,
                     on_attach = on_attach,
