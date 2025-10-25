@@ -1,5 +1,7 @@
+-- Plugin configuration for opencode.nvim
 return {
 
+    -- Plugin name and source
     "NickvanDyke/opencode.nvim",
     dependencies = {
         -- Recommended for `ask()` and `select()`.
@@ -7,10 +9,11 @@ return {
         { "folke/snacks.nvim", opts = { input = {}, picker = {} } },
     },
     config = function()
+        -- Set global options for opencode
         vim.g.opencode_opts = {
             terminal = {
                 win = {
-                    enter = true,
+                    enter = true,  -- Enter the terminal window when opened
                 }
             }
             -- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition" on `opencode_opts`.
