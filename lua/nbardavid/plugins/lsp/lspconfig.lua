@@ -38,7 +38,7 @@ return {
                     buffer = bufnr,
                     callback = function()
                         vim.lsp.buf.format({ 
-                            async = false,
+                            async = true,
                             timeout_ms = 2000,
                         })
                     end,
@@ -46,7 +46,19 @@ return {
             end
         end
 
+        -- vim.lsp.config("csharp_ls", {
+        --     cmd = { "csharp-ls" },
+        --     capabilities = capabilities,
+        --     on_attach = on_attach,
+        -- })
+        -- vim.lsp.enable("csharp_ls")
+
         vim.lsp.config("clangd", {
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
+        vim.lsp.config("roslyn", {
             capabilities = capabilities,
             on_attach = on_attach,
         })
