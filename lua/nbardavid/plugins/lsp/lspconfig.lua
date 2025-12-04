@@ -38,7 +38,7 @@ return {
                     buffer = bufnr,
                     callback = function()
                         vim.lsp.buf.format({ 
-                            async = true,
+                            async = false,
                             timeout_ms = 2000,
                         })
                     end,
