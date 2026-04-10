@@ -15,7 +15,6 @@ return {
 
         blink.setup({
             completion = {
-                completeopt = "menu,menuone,noselect",
                 menu = {
                     border = "single",
                     draw = {
@@ -25,9 +24,6 @@ return {
                         },
                     },
                 },
-                documentation = {
-                    border = "single"
-                }
             },
 
             snippets = { preset = "luasnip" },

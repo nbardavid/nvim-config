@@ -43,5 +43,12 @@ end, { noremap = true, silent = true })
 --        vim.cmd("ShowKeyToggle")
 --    end
 --})
+
+-- Resize splits
+keymap.set({"n", "t"}, "<A-{>", "<Cmd>resize -2<CR>", { desc = "Increase split height" })
+keymap.set({"n", "t"}, "<A-\">", "<Cmd>resize +2<CR>", { desc = "Decrease split height" })
+keymap.set({"n", "t"}, "<A-|>", "<Cmd>vertical resize -5<CR>", { desc = "Decrease split width" })
+keymap.set({"n", "t"}, "<A-:>", "<Cmd>vertical resize +5<CR>", { desc = "Increase split width" })
+
 -- NVCHAD
 
