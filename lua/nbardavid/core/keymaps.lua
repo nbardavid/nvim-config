@@ -50,5 +50,9 @@ keymap.set({"n", "t"}, "<A-\">", "<Cmd>resize +2<CR>", { desc = "Decrease split 
 keymap.set({"n", "t"}, "<A-|>", "<Cmd>vertical resize -5<CR>", { desc = "Decrease split width" })
 keymap.set({"n", "t"}, "<A-:>", "<Cmd>vertical resize +5<CR>", { desc = "Increase split width" })
 
+keymap.set("n", "<leader>tc", "<cmd>tabnew | terminal claude<cr>", { desc = "Claude in tab" })
+keymap.set("n", "<leader>tt", "<cmd>tabnew | terminal<cr>", { desc = "Terminal in tab" })
+keymap.set("t", "jk", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
 -- NVCHAD
 
