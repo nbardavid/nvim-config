@@ -50,8 +50,9 @@ keymap.set({"n", "t"}, "<A-\">", "<Cmd>resize +2<CR>", { desc = "Decrease split 
 keymap.set({"n", "t"}, "<A-|>", "<Cmd>vertical resize -5<CR>", { desc = "Decrease split width" })
 keymap.set({"n", "t"}, "<A-:>", "<Cmd>vertical resize +5<CR>", { desc = "Increase split width" })
 
-keymap.set("n", "<leader>tc", "<cmd>tabnew | terminal claude<cr>", { desc = "Claude in tab" })
-keymap.set("n", "<leader>tt", "<cmd>tabnew | terminal<cr>", { desc = "Terminal in tab" })
+local utils = require("nbardavid.core.utils")
+keymap.set("n", "<leader>tc", function() utils.open_term_in_tab("claude") end, { desc = "Claude in tab" })
+keymap.set("n", "<leader>tt", function() utils.open_term_in_tab() end, { desc = "Terminal in tab" })
 keymap.set("t", "jk", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- NVCHAD
