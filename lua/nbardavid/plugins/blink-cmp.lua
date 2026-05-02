@@ -1,8 +1,9 @@
 return {
     "saghen/blink.cmp",
-    build = "cargo build --release", -- ou: version = "1.*"
+    build = function() require('blink.cmp').build():wait(60000) end,
     event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
+        "saghen/blink.lib",
         { "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" },
         "rafamadriz/friendly-snippets",
         -- "roginfarrer/cmp-css-variables",
